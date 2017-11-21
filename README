@@ -18,6 +18,8 @@ github.com -> <Github Username>
 
 2. Export OS Variables
 
+For this project here are the commands run to setup the system variables.
+
 ```
 export GOPATH=$HOME/code/goPi
 

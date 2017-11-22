@@ -1,10 +1,10 @@
-#GoPi
+# GoPi
 
 Simple Golang project that computes PI using the Leibniz infinite series.
 
 https://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80
 
-##Setup
+## Setup
 
 1. Make Directory Structure
 
@@ -61,7 +61,7 @@ https://youtu.be/2KmHtgtEZ1s
 
 ```
 
-##Running
+## Running
 
 After you have compiled the project you can navigate to the bin directory  
 and execute the pi executable. The first command line argument to give is the

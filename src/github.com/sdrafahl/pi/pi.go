@@ -4,9 +4,7 @@ import (
     "fmt"
     "os"
     "strconv"
-    //"sync"
 )
-
 
 func main() {
     numOfIterations, err := strconv.Atoi(os.Args[1])

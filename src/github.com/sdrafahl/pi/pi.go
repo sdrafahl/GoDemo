@@ -9,22 +9,19 @@ import (
 
 
 func main() {
-    //message := make(chan int)
-    //var wg sync.WaitGroup
-    //wg.Add(2)
     numOfIterations, err := strconv.Atoi(os.Args[1])
     if(err != nil) {
         fmt.Println("Error Converting Argument")
     }
-    positive := countPositives(numOfIterations)
-    negative := countNegatives(numOfIterations)
-    //wg.Wait()
+    ch := make(chan float64)
+    go countPositives(numOfIterations, ch)
+    go countNegatives(numOfIterations, ch)
+    negative, positive := <- ch, <- ch
     pi := positive - negative
     fmt.Println(pi * 4.0)
 }
 
-func countNegatives(iterations int) float64 {
-    //defer wg.Done()
+func countNegatives(iterations int, ch chan float64) {
     sum := 0.0
     bottom := 3.0
     for i := 0; i < iterations; i++ {
@@ -32,12 +29,10 @@ func countNegatives(iterations int) float64 {
         sum = sum + val
         bottom = bottom + 4.0
     }
-    //message <- 2
-    return sum
+    ch <- sum
 }
 
-func countPositives(iterations int) float64 {
-    //defer wg.Done()
+func countPositives(iterations int, ch chan float64) {
     sum := 0.0
     bottom := 1.0
     for i := 0; i < iterations; i++ {
@@ -45,6 +40,5 @@ func countPositives(iterations int) float64 {
         sum = sum + val
         bottom = bottom + 4
     }
-    //message <- 1
-    return sum
+    ch <- sum
 }

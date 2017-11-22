@@ -35,7 +35,7 @@ export PATH=$PATH:GOPATH/code/goPi/bin
 
 ```
 
-go install github.com/sdrafahl/hello
+go install github.com/sdrafahl/pi
 
 ```
 
